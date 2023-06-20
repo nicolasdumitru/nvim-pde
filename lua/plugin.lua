@@ -70,13 +70,6 @@ require("lazy").setup({
 		version = "*",
 		config = true
 	},
-	{
-		"lmburns/lf.nvim",
-		dependencies = {
-			{"plenary.nvim"},
-			{"toggleterm.nvim"},
-		}
-	},
 })
 
 -- Gruvbox theme options
@@ -103,6 +96,3 @@ require("pluginconfig.telescope-remap")
 
 -- Toggleterm setup
 require("pluginconfig.toggleterm-config")
-
--- Lf setup
-require("pluginconfig.lf-config")
