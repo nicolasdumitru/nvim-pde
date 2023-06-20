@@ -22,6 +22,7 @@ require("lazy").setup({
 	-- Gruvbox theme
 	{
 		"ellisonleao/gruvbox.nvim",
+		lazy = false,
 		priority = 1000
 	},
 	-- Lualine
@@ -75,7 +76,7 @@ require("lazy").setup({
 require("pluginconfig.gruvbox-config")
 
 -- Set the theme
-vim.cmd("colorscheme gruvbox")
+vim.cmd.colorscheme("gruvbox")
 
 -- Lualine setup
 require("pluginconfig.lualine-config")
