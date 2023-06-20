@@ -25,4 +25,5 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	build = vim.cmd.TSUpdate,
 	config = configuration,
+	name = "Treesitter",
 	}

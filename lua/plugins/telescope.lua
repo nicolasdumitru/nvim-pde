@@ -9,8 +9,9 @@ local function remaps ()
 end
 
 return {
-		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
-		dependencies = {"nvim-lua/plenary.nvim"},
-		config = remaps
+	"nvim-telescope/telescope.nvim",
+	branch = "0.1.x",
+	dependencies = {"nvim-lua/plenary.nvim"},
+	config = remaps,
+	name = "Telescope",
 	}

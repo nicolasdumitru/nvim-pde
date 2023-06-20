@@ -32,5 +32,5 @@ return {
 	"ellisonleao/gruvbox.nvim",
 	lazy = false,
 	priority = 1000,
-	config = configuration
+	config = configuration,
 }

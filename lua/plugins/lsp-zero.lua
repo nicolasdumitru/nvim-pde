@@ -73,4 +73,5 @@ return {
 		{"L3MON4D3/LuaSnip"},     -- Required
 	},
 	config = configuration,
+	name = "LSP Zero",
 }
