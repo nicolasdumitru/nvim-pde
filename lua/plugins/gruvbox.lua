@@ -19,7 +19,10 @@ local function configuration ()
 			invert_intend_guides = false,
 			inverse = true, -- invert background for search, diffs, statuslines and errors
 			contrast = "", -- can be "hard", "soft" or empty string
-			palette_overrides = {},
+			palette_overrides = {
+				neutral_green =  "#32db7a",
+				neutral_red = "#e7143c",
+			},
 			overrides = {},
 			dim_inactive = false,
 			transparent_mode = false,
