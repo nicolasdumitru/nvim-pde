@@ -30,7 +30,6 @@ local function configuration ()
 		vim.o.background = "dark" -- or "light" for light mode
 	end
 
-
 return {
 	"ellisonleao/gruvbox.nvim",
 	lazy = false,
