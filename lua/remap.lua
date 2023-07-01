@@ -14,18 +14,18 @@ vim.keymap.set("n", "<leader><Return>", ":cd %:p:h <CR> :!$TERM & disown <CR> :m
 -- Show Netrw
 vim.keymap.set("n", "<leader>lf", vim.cmd.Ex)
 
+-- System clipboard remaps
 -- Easily yank (copy) stuff into the system clipoboard
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+y$]])
-
 -- Easily delete (cut) stuff into the system clipoboard
 vim.keymap.set({"n", "v"}, "<leader>d", [["+d]])
 vim.keymap.set("n", "<leader>D", [["+D]])
 
+-- Black hole register remaps
 -- Easily delete stuff without copying it
 vim.keymap.set({"n", "v"}, "<leader>c", [["_c]])
 vim.keymap.set("n", "<leader>C", [["_C]])
-
 -- Keep the copied string in register when pasting over a highlight
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
@@ -33,7 +33,7 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 
--- Splits
+-- Splits remaps
 -- Navigate splits quickly in normal and insert mode
 vim.keymap.set("n", "<A-h>", "<C-w>h")
 vim.keymap.set("n", "<A-j>", "<C-w>j")
