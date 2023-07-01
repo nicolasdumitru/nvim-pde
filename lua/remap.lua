@@ -40,6 +40,12 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader>x", "<Cmd>!chmod +x %<CR><CR>", { silent = true })
 vim.keymap.set("n", "<leader>X", "<Cmd>!chmod -x %<CR><CR>", { silent = true })
 
+-- Set a new undo point and delete a word with ctrl-backspace in insert mode
+-- (this is for terminals that pass ctrl-backspace as <C-BS> instead of <C-w> to neovim)
+vim.keymap.set("i", "<C-BS>", "<C-G>u<C-W>" )
+
+--The remaps below don't really add new functionality to Neovim, they just improve the behavior of already existent mappings. They could almost be regarded as settings.
+
 -- Keep the cursor in the middle of the screen
 -- when scrolling half a page
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -53,10 +59,6 @@ vim.keymap.set("n", "N", "Nzz") -- or "Nzzzv"
 
 -- Keep the cursor in the same place when appending lines
 vim.keymap.set("n", "J", "mzJ`z")
-
--- Set a new undo point and delete a word with ctrl-backspace in insert mode
--- (this is for terminals that pass ctrl-backspace as <C-BS> instead of <C-w> is to neovim)
-vim.keymap.set("i", "<C-BS>", "<C-G>u<C-W>" )
 
 -- Default bindings that I'd like to make sure I keep regardless of potential future updates
 vim.keymap.set("n", "Y", "y$" )
