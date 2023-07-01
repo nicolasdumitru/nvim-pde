@@ -1,6 +1,6 @@
 local function configuration ()
 	require("nvim-autopairs").setup({
-		disable_filetype = { "TelescopePrompt" , "vim" },
+		disable_filetype = { "TelescopePrompt" , "vim", "txt" },
 		enable_check_bracket_line = false, -- will not add a pair if it already exists on the line
 		ignored_next_char = "[%w%.]" -- will ignore alphanumeric and `.` symbol
 	})
