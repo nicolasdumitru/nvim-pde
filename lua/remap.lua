@@ -2,8 +2,6 @@
 -- Remaps that use plugin functionality are set in the "pluginremap.lua" file.
 
 vim.g.mapleader = " "
--- Show Netrw
-vim.keymap.set("n", "<leader>lf", vim.cmd.Ex)
 
 -- Go to the directory of the currently edited file
 vim.keymap.set("n", "<leader>cd", ":cd %:p:h <CR> :pwd <CR>")
@@ -12,6 +10,9 @@ vim.keymap.set("n", "<leader>c.", ":cd .. <CR> :pwd <CR>")
 
 -- Open an external terminal in the current working directory
 vim.keymap.set("n", "<leader><Return>", ":cd %:p:h <CR> :!$TERM & disown <CR> :mode <CR>")
+
+-- Show Netrw
+vim.keymap.set("n", "<leader>lf", vim.cmd.Ex)
 
 -- Easily yank (copy) stuff into the system clipoboard
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
