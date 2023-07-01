@@ -1,18 +1,19 @@
 local function configuration ()
-	require('nvim-autopairs').setup({
+	require("nvim-autopairs").setup({
 		disable_filetype = { "TelescopePrompt" , "vim" },
 		enable_check_bracket_line = false, -- will not add a pair if it already exists on the line
 		ignored_next_char = "[%w%.]" -- will ignore alphanumeric and `.` symbol
 	})
+
 	-- If you want insert `(` after select function or method item
-	local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-	local cmp = require('cmp')
+	local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+	local cmp = require("cmp")
 	cmp.event:on(
-		'confirm_done',
+		"confirm_done",
 		cmp_autopairs.on_confirm_done()
 	)
 	local npairs = require("nvim-autopairs")
-	local Rule = require('nvim-autopairs.rule')
+	local Rule = require("nvim-autopairs.rule")
 
 	npairs.setup({
 		check_ts = true,
@@ -22,7 +23,7 @@ local function configuration ()
 			java = false,-- don't check treesitter on java
 		},
 		fast_wrap = {
-			map = '<M-w>',
+			map = "<M-w>",
 			chars = { '{', '[', '(', '"', "'" },
 			pattern = [=[[%'%"%>%]%)%}%,]]=],
 			end_key = '$',
@@ -36,7 +37,6 @@ local function configuration ()
 
 	local ts_conds = require('nvim-autopairs.ts-conds')
 
-
 	-- press % => %% only while inside a comment or string
 	npairs.add_rules({
 		Rule("%", "%", "lua")
@@ -47,7 +47,7 @@ local function configuration ()
 end
 
 return {
-    'windwp/nvim-autopairs',
+    "windwp/nvim-autopairs",
     event = "InsertEnter",
 	config = configuration,
 }
