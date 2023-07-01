@@ -5,8 +5,10 @@ vim.g.mapleader = " "
 -- Show Netrw
 vim.keymap.set("n", "<leader>lf", vim.cmd.Ex)
 
--- Update current working directory
-vim.keymap.set("n", "<leader>cd", ":cd %:p:h <CR>")
+-- Go to the directory of the currently edited file
+vim.keymap.set("n", "<leader>cd", ":cd %:p:h <CR> :pwd <CR>")
+-- Go up a directory
+vim.keymap.set("n", "<leader>c.", ":cd .. <CR> :pwd <CR>")
 
 -- Open an external terminal in the current working directory
 vim.keymap.set("n", "<leader><Return>", ":cd %:p:h <CR> :!$TERM & disown <CR> :mode <CR>")
