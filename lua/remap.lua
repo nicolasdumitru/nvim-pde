@@ -54,10 +54,13 @@ vim.keymap.set("n", "N", "Nzz") -- or "Nzzzv"
 -- Keep the cursor in the same place when appending lines
 vim.keymap.set("n", "J", "mzJ`z")
 
--- Undo after deleting a word with ctrl-backspace in insert mode
-vim.keymap.set("i", "<C-<BS>>", "<C-G>u<C-<BS>" )
+-- Set a new undo point and delete a word with ctrl-backspace in insert mode
+-- (this is for terminals that pass ctrl-backspace as <C-BS> instead of <C-w> is to neovim)
+vim.keymap.set("i", "<C-BS>", "<C-G>u<C-W>" )
 
 -- Default bindings that I'd like to make sure I keep regardless of potential future updates
 vim.keymap.set("n", "Y", "y$" )
+-- Set a new undo point and delete a line with ctrl-u in insert mode
 vim.keymap.set("i", "<C-U>", "<C-G>u<C-U>" )
+-- Set a new undo point and delete a word with ctrl-w in insert mode
 vim.keymap.set("i", "<C-W>", "<C-G>u<C-W>" )
