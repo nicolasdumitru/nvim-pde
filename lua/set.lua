@@ -8,10 +8,10 @@ vim.opt.tabstop = 4
 vim.opt.smartindent = true
 vim.opt.expandtab = false
 
--- Show tabs
+-- Show tab characters
 vim.opt.list = true
 
--- Search settings (case sensitivity)
+-- Search settings (case (in)sensitivity)
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.incsearch = true
@@ -20,7 +20,7 @@ vim.opt.hlsearch = true
 -- Colors
 vim.opt.termguicolors = true
 
--- Lines at the top and bottom
+-- Minimum amount of lines above and below cursor
 vim.opt.scrolloff = 4
 
 -- Update time
