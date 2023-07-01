@@ -34,3 +34,7 @@ vim.opt.swapfile = true
 
 -- Hidden (hide abbandoned buffers)
 vim.opt.hidden = true
+
+-- Split rightward and downward
+vim.opt.splitright = true
+vim.opt.splitbelow = true
