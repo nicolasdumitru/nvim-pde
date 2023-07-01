@@ -33,6 +33,28 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 
+-- Splits
+-- Navigate splits quickly in normal and insert mode
+vim.keymap.set("n", "<A-h>", "<C-w>h")
+vim.keymap.set("n", "<A-j>", "<C-w>j")
+vim.keymap.set("n", "<A-k>", "<C-w>k")
+vim.keymap.set("n", "<A-l>", "<C-w>l")
+vim.keymap.set("i", "<A-h>", "<Esc><C-w>h")
+vim.keymap.set("i", "<A-j>", "<Esc><C-w>j")
+vim.keymap.set("i", "<A-k>", "<Esc><C-w>k")
+vim.keymap.set("i", "<A-l>", "<Esc><C-w>l")
+-- Move splits quickly in normal mode
+vim.keymap.set("n", "<A-H>", "<C-w>H")
+vim.keymap.set("n", "<A-J>", "<C-w>J")
+vim.keymap.set("n", "<A-K>", "<C-w>K")
+vim.keymap.set("n", "<A-L>", "<C-w>L")
+-- Resize splits quickly in normal mode
+vim.keymap.set("n", "<A-=>", "<C-w>=")
+vim.keymap.set("n", "<A-Left>", ":vertical resize -2<CR>")
+vim.keymap.set("n", "<A-Down>", ":resize -1<CR>")
+vim.keymap.set("n", "<A-Up>", ":resize +1<CR>")
+vim.keymap.set("n", "<A-Right>", ":vertical resize +2<CR>")
+
 -- Replace a word in the whole file
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
