@@ -8,7 +8,7 @@ local function configuration()
 				return vim.o.columns * 0.4
 			end
 		end,
-		open_mapping = [[<M-CR>]],
+		open_mapping = [[<A-CR>]],
 	}
 end
 

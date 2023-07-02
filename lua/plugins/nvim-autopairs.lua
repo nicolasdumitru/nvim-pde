@@ -23,7 +23,7 @@ local function configuration ()
 			java = false,-- don't check treesitter on java
 		},
 		fast_wrap = {
-			map = "<M-w>",
+			map = "<A-w>",
 			chars = { '{', '[', '(', '"', "'" },
 			pattern = [=[[%'%"%>%]%)%}%,]]=],
 			end_key = '$',
