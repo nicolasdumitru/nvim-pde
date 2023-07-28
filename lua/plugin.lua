@@ -17,8 +17,14 @@ vim.opt.rtp:prepend(lazypath)
 -- Lazy remaps
 vim.keymap.set("n", "<leader>pm", vim.cmd.Lazy)
 
+local options = {
+	change_detection = {
+		enabled = false,
+		notify = false,
+	}
+}
 -- Load the plugins
-require("lazy").setup("plugins")
+require("lazy").setup("plugins", options)
 
 -- Set the theme
 vim.cmd.colorscheme("gruvbox")
