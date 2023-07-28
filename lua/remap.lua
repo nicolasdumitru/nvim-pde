@@ -2,6 +2,7 @@
 -- Remaps that use plugin functionality are set in the "pluginremap.lua" file.
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 -- Go to the directory of the currently edited file
 vim.keymap.set("n", "<leader>cd", ":cd %:p:h <CR> :pwd <CR>")
