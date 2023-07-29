@@ -18,6 +18,8 @@ local function configuration ()
 		},
 		},
 	}
+
+	vim.opt.conceallevel = 2
 end
 
 return {
