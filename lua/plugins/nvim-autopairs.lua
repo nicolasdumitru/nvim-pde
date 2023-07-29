@@ -1,6 +1,6 @@
 local function configuration ()
 	require("nvim-autopairs").setup({
-		disable_filetype = { "TelescopePrompt" , "vim", "txt" },
+		disable_filetype = { "TelescopePrompt" , "vim", },
 		enable_check_bracket_line = false, -- will not add a pair if it already exists on the line
 		ignored_next_char = "[%w%.]" -- will ignore alphanumeric and `.` symbol
 	})
@@ -36,6 +36,8 @@ local function configuration ()
 	})
 
 	local ts_conds = require('nvim-autopairs.ts-conds')
+
+	require("nvim-autopairs").get_rules("'")[1].not_filetypes = { "text", }
 
 	--[[
 	-- press % => %% only while inside a comment or string
