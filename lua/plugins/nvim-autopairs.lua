@@ -1,6 +1,6 @@
-local function configuration ()
+local function configuration()
 	require("nvim-autopairs").setup({
-		disable_filetype = { "TelescopePrompt" , "vim", },
+		disable_filetype = { "TelescopePrompt", "vim", },
 		enable_check_bracket_line = false, -- will not add a pair if it already exists on the line
 		ignored_next_char = "[%w%.]" -- will ignore alphanumeric and `.` symbol
 	})
@@ -18,9 +18,9 @@ local function configuration ()
 	npairs.setup({
 		check_ts = true,
 		ts_config = {
-			lua = {'string'},-- it will not add a pair on that treesitter node
-			javascript = {'template_string'},
-			java = false,-- don't check treesitter on java
+			lua = { 'string' }, -- it will not add a pair on that treesitter node
+			javascript = { 'template_string' },
+			java = false, -- don't check treesitter on java
 		},
 		fast_wrap = {
 			map = "<A-w>",
@@ -61,7 +61,7 @@ local function configuration ()
 end
 
 return {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
+	"windwp/nvim-autopairs",
+	event = "InsertEnter",
 	config = configuration,
 }

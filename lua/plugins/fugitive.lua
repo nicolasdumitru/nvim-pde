@@ -1,4 +1,4 @@
-local function configuration ()
+local function configuration()
 	vim.keymap.set("n", "<leader>gd", vim.cmd.Gvdiffsplit)
 	vim.keymap.set("n", "<leader>gv", vim.cmd.Gvdiffsplit)
 	vim.keymap.set("n", "<leader>gh", vim.cmd.Ghdiffsplit)

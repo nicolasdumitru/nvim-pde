@@ -1,4 +1,4 @@
-local function configuration ()
+local function configuration()
 	local lsp = require("lsp-zero").preset({
 		{
 			float_border = "rounded",
@@ -21,11 +21,11 @@ local function configuration ()
 	})
 
 	lsp.on_attach(function(client, bufnr)
-		lsp.default_keymaps({buffer = bufnr})
-		local opts = {buffer = bufnr}
+		lsp.default_keymaps({ buffer = bufnr })
+		local opts = { buffer = bufnr }
 
-		vim.keymap.set({'n', 'v'}, "<A-f>", function()
-			vim.lsp.buf.format({async = false, timeout_ms = 10000})
+		vim.keymap.set({ 'n', 'v' }, "<A-f>", function()
+			vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
 		end, opts)
 	end)
 
@@ -51,11 +51,11 @@ local function configuration ()
 			completeopt = "menu,menuone,noinsert"
 		},
 		sources = {
-			{name = "nvim_lsp"},
-			{name = "luasnip"},
+			{ name = "nvim_lsp" },
+			{ name = "luasnip" },
 		},
 		mapping = {
-			["<CR>"] = cmp.mapping.confirm({select = true}),
+			["<CR>"] = cmp.mapping.confirm({ select = true }),
 			["<Tab>"] = cmp_action.tab_complete(),
 			["<S-Tab>"] = cmp_action.select_prev_or_fallback(),
 		},
@@ -67,16 +67,16 @@ return {
 	branch = "v2.x",
 	dependencies = {
 		-- LSP Support
-		{"neovim/nvim-lspconfig"},             -- Required
-		{                                      -- Optional
+		{ "neovim/nvim-lspconfig" }, -- Required
+		{                      -- Optional
 			"williamboman/mason.nvim",
 			build = pcall(vim.cmd.MasonUpdate)
 		},
-		{"williamboman/mason-lspconfig.nvim"}, -- Optional
+		{ "williamboman/mason-lspconfig.nvim" }, -- Optional
 		-- Autocompletion
-		{"hrsh7th/nvim-cmp"},     -- Required
-		{"hrsh7th/cmp-nvim-lsp"}, -- Required
-		{"L3MON4D3/LuaSnip"},     -- Required
+		{ "hrsh7th/nvim-cmp" },            -- Required
+		{ "hrsh7th/cmp-nvim-lsp" },        -- Required
+		{ "L3MON4D3/LuaSnip" },            -- Required
 	},
 	config = configuration,
 	name = "LSP Zero",

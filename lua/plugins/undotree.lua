@@ -1,6 +1,7 @@
-local function configuration ()
+local function configuration()
 	vim.keymap.set("n", "<A-u>", vim.cmd.UndotreeToggle)
 end
+
 return {
 	"mbbill/undotree",
 	name = "undotree",

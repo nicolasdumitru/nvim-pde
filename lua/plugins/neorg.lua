@@ -1,21 +1,21 @@
-local function configuration ()
+local function configuration()
 	require("neorg").setup {
 		load = {
-		["core.defaults"] = {}, -- Loads default behaviour
-		["core.concealer"] = {
-			config = {
-				folds = true,
-				icon_preset = "basic",
-			}
-		}, -- Adds pretty icons to your documents
-		["core.dirman"] = { -- Manages Neorg workspaces
-			config = {
-				workspaces = {
-					notes = "~/notes",
+			["core.defaults"] = {}, -- Loads default behaviour
+			["core.concealer"] = {
+				config = {
+					folds = true,
+					icon_preset = "basic",
+				}
+			},        -- Adds pretty icons to your documents
+			["core.dirman"] = { -- Manages Neorg workspaces
+				config = {
+					workspaces = {
+						notes = "~/notes",
+					},
+					default_workspace = "notes",
 				},
-				default_workspace = "notes",
 			},
-		},
 		},
 	}
 

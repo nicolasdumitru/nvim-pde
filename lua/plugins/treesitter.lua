@@ -1,9 +1,9 @@
-local function build ()
+local function build()
 	require("nvim-treesitter.install").update({ with_sync = true })
 end
 
-local function configuration ()
-	require'nvim-treesitter.configs'.setup {
+local function configuration()
+	require 'nvim-treesitter.configs'.setup {
 		-- A list of parser names, or "all" (the five listed parsers should always be installed)
 		ensure_installed = { "c", "cpp", "rust", "lua", "bash" },
 		-- Install parsers synchronously (only applied to `ensure_installed`)

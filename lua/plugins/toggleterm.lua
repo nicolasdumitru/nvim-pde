@@ -4,7 +4,7 @@ local function configuration()
 		size = 15,
 		open_mapping = [[<A-CR>]],
 		hide_numbers = true, -- hide the number column in toggleterm buffers
-		autochdir = true,  -- when neovim changes it current directory the terminal will change it's own when next it's opened
+		autochdir = true,   -- when neovim changes it current directory the terminal will change it's own when next it's opened
 		shade_terminals = true, -- NOTE: this option takes priority over highlights specified so if you specify Normal highlights you should set this to false
 		shading_factor = '-30', -- the percentage by which to lighten terminal background, default: -30 (gets multiplied by -3 if background is light)
 		start_in_insert = true,
