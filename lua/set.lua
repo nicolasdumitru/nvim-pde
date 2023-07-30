@@ -38,3 +38,6 @@ vim.opt.hidden = true
 -- Split rightward and downward
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+
+-- Open all folds
+vim.opt.foldenable = false
