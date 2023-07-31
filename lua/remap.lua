@@ -8,6 +8,10 @@ vim.g.maplocalleader = ","
 vim.keymap.set("n", "<leader>cd", ":cd %:p:h <CR> :pwd <CR>")
 -- Go up a directory
 vim.keymap.set("n", "<leader>c.", ":cd .. <CR> :pwd <CR>")
+-- Go to the ~/.config directory
+vim.keymap.set("n", "<leader>cf", ":cd ~/.config <CR> :pwd <CR>")
+-- Go to the neovim configuration directory (~/.config/nvim)
+vim.keymap.set("n", "<leader>cn", ":cd ~/.config/nvim <CR> :pwd <CR>")
 
 -- Open an external terminal in the working directory of the currently edited file
 vim.keymap.set("n", "<leader>tt", ":cd %:p:h <CR> :!$TERM & disown <CR> :mode <CR>")
