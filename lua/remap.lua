@@ -59,10 +59,6 @@ vim.keymap.set({ "n", "i", "t" }, "<A-Right>", "<Cmd>vertical resize +2 <CR>", {
 -- Replace a word in the whole file
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- Make the current file (not) executable
-vim.keymap.set("n", "<leader>x", "<Cmd>!chmod +x %<CR><CR>", { silent = true })
-vim.keymap.set("n", "<leader>X", "<Cmd>!chmod -x %<CR><CR>", { silent = true })
-
 -- Set a new undo point and delete a word with ctrl-backspace in insert mode
 -- (this is for terminals that pass ctrl-backspace as <C-BS> instead of <C-w> to neovim)
 vim.keymap.set("i", "<C-BS>", "<C-G>u<C-W>")
