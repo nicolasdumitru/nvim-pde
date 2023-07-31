@@ -24,9 +24,15 @@ local function configuration()
 		lsp.default_keymaps({ buffer = bufnr })
 		local opts = { buffer = bufnr }
 
-		vim.keymap.set({ 'n', 'v' }, "<leader>==", function()
+		-- Format a file with the LSP
+		vim.keymap.set({ "n", "v" }, "<leader>==", function()
 			vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
 		end, opts)
+
+		-- Rename a variable with the LSP
+		vim.keymap.set("n", "<leader>rr", function()
+			vim.lsp.buf.rename()
+		end)
 	end)
 
 	lsp.ensure_installed({
