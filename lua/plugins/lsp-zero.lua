@@ -24,7 +24,7 @@ local function configuration()
 		lsp.default_keymaps({ buffer = bufnr })
 		local opts = { buffer = bufnr }
 
-		vim.keymap.set({ 'n', 'v' }, "<A-f>", function()
+		vim.keymap.set({ 'n', 'v' }, "<leader>==", function()
 			vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
 		end, opts)
 	end)
