@@ -30,7 +30,7 @@ local function configuration()
 		end, opts)
 
 		-- Rename a variable with the LSP
-		vim.keymap.set("n", "<leader>rr", function()
+		vim.keymap.set("n", "<leader>%s", function()
 			vim.lsp.buf.rename()
 		end)
 	end)
