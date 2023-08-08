@@ -9,6 +9,8 @@ local function remaps()
 	vim.keymap.set("n", "<leader>b<Return>", builtin.buffers, {})
 	vim.keymap.set("n", "<leader>h<Return>", builtin.help_tags, {})
 	vim.keymap.set("n", "<leader>c<Return>", builtin.commands, {})
+	vim.keymap.set("n", "<leader>k<Return>", builtin.keymaps, {})
+	vim.keymap.set("n", "<leader>lr", builtin.lsp_references, {})
 end
 
 return {
