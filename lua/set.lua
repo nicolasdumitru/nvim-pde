@@ -12,7 +12,7 @@ vim.opt.tabstop = 4
 vim.opt.smartindent = true
 vim.opt.expandtab = false
 
--- Show tab characters
+-- List mode (show invisible characters)
 vim.opt.list = true
 
 -- Search settings (case (in)sensitivity)
