@@ -1,10 +1,11 @@
 -- Telescope remaps
 local function remaps()
 	local builtin = require("telescope.builtin")
-	vim.keymap.set("n", "<leader><Return>", vim.cmd.Telescope, {})
+	vim.keymap.set("n", "<leader>t<Return>", builtin.builtin, {})
 	vim.keymap.set("n", "<leader>f<Return>", builtin.find_files, {})
 	vim.keymap.set("n", "<leader>r<Return>", builtin.git_files, {})
 	vim.keymap.set("n", "<leader>g<Return>", builtin.live_grep, {})
+	vim.keymap.set("n", "<leader>gs", builtin.grep_string, {})
 	vim.keymap.set("n", "<leader>b<Return>", builtin.buffers, {})
 	vim.keymap.set("n", "<leader>h<Return>", builtin.help_tags, {})
 	vim.keymap.set("n", "<leader>c<Return>", builtin.commands, {})
