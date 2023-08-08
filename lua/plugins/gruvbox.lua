@@ -23,7 +23,12 @@ local function configuration()
 			neutral_green = "#32db7a",
 			neutral_red = "#e7143c",
 		},
-		overrides = {},
+		overrides = {
+			CursorLineNr = {
+				fg = "#fe8019",
+				bold = true,
+			},
+		},
 		dim_inactive = false,
 		transparent_mode = false,
 	})
