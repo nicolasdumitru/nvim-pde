@@ -45,3 +45,6 @@ vim.opt.splitbelow = true
 
 -- Open all folds
 vim.opt.foldenable = false
+
+-- Window title
+vim.opt.title = true
