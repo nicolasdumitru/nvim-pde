@@ -30,4 +30,8 @@ return {
 	build = ":Neorg sync-parsers",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = configuration,
+	lazy = true,
+	ft = "norg",
+	keys = "<leader>nx",
+	cmd = "Neorg"
 }
