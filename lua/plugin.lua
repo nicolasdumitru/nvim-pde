@@ -25,6 +25,3 @@ local options = {
 }
 -- Load the plugins
 require("lazy").setup("plugins", options)
-
--- Set the theme
-vim.cmd.colorscheme("gruvbox")
