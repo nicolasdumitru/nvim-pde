@@ -25,9 +25,6 @@ vim.opt.smartcase = true
 vim.opt.incsearch = true
 vim.opt.hlsearch = true
 
--- Colors
-vim.opt.termguicolors = true
-
 -- Minimum amount of lines above and below cursor
 vim.opt.scrolloff = 4
 
