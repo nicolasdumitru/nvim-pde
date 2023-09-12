@@ -20,8 +20,6 @@ local function configuration()
 		vim.keymap.set("n", "<leader>nx", "<CMD>Neorg index<CR>"),
 		vim.keymap.set("n", "<localleader>ct", "<CMD>Neorg toggle-concealer<CR>"),
 	}
-
-	vim.opt.conceallevel = 2
 end
 
 return {

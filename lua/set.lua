@@ -6,6 +6,9 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = false
 
+-- Conceal level (how concealed text is shown)
+vim.opt.conceallevel = 2
+
 -- Indentation settings
 local tab_width = 4
 vim.opt.shiftwidth = tab_width
