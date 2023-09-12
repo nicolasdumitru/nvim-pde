@@ -47,5 +47,4 @@ return {
 	name = "gitsigns",
 	event = "VeryLazy",
 	config = configuration,
-	cond = false,
 }
