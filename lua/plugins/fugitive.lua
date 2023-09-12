@@ -7,4 +7,5 @@ return {
 	"tpope/vim-fugitive",
 	name = "Fugitive",
 	config = configuration,
+	event = "VeryLazy",
 }

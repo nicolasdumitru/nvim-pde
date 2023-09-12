@@ -26,4 +26,5 @@ return {
 	"nvim-treesitter/nvim-treesitter-context",
 	name = "Treesitter Context",
 	config = configuration,
+	event = "VeryLazy"
 }

@@ -6,4 +6,5 @@ return {
 	"mbbill/undotree",
 	name = "undotree",
 	config = configuration,
+	event = "VeryLazy",
 }

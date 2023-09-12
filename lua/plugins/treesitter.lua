@@ -30,4 +30,5 @@ return {
 	build = build,
 	config = configuration,
 	name = "Treesitter",
+	event = "VeryLazy"
 }

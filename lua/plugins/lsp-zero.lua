@@ -86,4 +86,5 @@ return {
 	},
 	config = configuration,
 	name = "LSP Zero",
+	event = "VeryLazy",
 }
