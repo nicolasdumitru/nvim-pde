@@ -47,5 +47,8 @@ vim.opt.splitbelow = true
 -- Open all folds
 vim.opt.foldenable = false
 
+-- Tildeop (make tilde "~" behave like an operator)
+vim.opt.tildeop = true
+
 -- Window title
 vim.opt.title = true
