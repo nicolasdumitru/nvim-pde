@@ -69,8 +69,8 @@ vim.keymap.set("i", "<C-BS>", "<C-G>u<C-W>")
 
 -- Keep the cursor in the middle of the screen
 -- when scrolling half a page
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-d>", "M<C-d>zz")
+vim.keymap.set("n", "<C-u>", "M<C-u>zz")
 -- when scrolling a full page
 vim.keymap.set("n", "<C-f>", "<C-f>zz")
 vim.keymap.set("n", "<C-b>", "<C-b>zz")
