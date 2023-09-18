@@ -6,6 +6,9 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = false
 
+-- Signcolumn settings
+vim.opt.signcolumn = "yes"
+
 -- Conceal level (how concealed text is shown)
 vim.opt.conceallevel = 2
 
