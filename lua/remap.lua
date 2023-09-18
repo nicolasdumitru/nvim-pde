@@ -1,5 +1,4 @@
--- These are the remaps (keybindings) that use Neovim's built-in functionality.
--- Remaps that use plugin functionality are set in the "pluginremap.lua" file.
+-- Keybindings
 
 -- Leader and LocalLeader
 vim.g.mapleader = " "

@@ -1,6 +1,3 @@
--- Window title
-vim.opt.title = true
-
 -- Minimum amount of lines above and below cursor
 vim.opt.scrolloff = 4
 
