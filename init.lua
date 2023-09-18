@@ -2,6 +2,8 @@
 
 -- Settings
 require("set")
+require("nick.core.filebuff")
+require("nick.core.ui")
 
 -- Remaps (and added keybindings)
 require("remap")
