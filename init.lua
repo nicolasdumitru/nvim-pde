@@ -1,5 +1,3 @@
--- Lua modules (imported from ~/.config/nvim/lua)
-
 -- Settings
 require("nick.core")
 require("nick.core.filebuff")
@@ -9,5 +7,5 @@ require("nick.core.environment")
 -- Remaps (and added keybindings)
 require("remap")
 
---Plugins (these should be loaded after everything else)
-require("plugin")
+--Plugins
+require("nick.plugin")

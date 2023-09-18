@@ -1,4 +1,4 @@
--- Plugin configuration
+-- Plugin manager bootstrap & configuration
 
 -- Lazy plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -24,4 +24,4 @@ local options = {
 	}
 }
 -- Load the plugins
-require("lazy").setup("plugins", options)
+require("lazy").setup("nick.plugin.spec", options)
