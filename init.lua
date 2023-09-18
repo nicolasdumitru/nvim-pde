@@ -1,7 +1,7 @@
 -- Lua modules (imported from ~/.config/nvim/lua)
 
 -- Settings
-require("set")
+require("nick.core")
 require("nick.core.filebuff")
 require("nick.core.ui")
 require("nick.core.environment")
