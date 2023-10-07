@@ -40,6 +40,7 @@ local function configuration()
 		"rust_analyzer",
 		"lua_ls",
 		"bashls",
+		"pyright",
 		"svlangserver",
 	})
 
