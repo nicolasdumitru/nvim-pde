@@ -12,6 +12,10 @@ local function configuration()
 
 		escape_quit = false,
 		border = "rounded",
+
+		winblend = 0,
+		dir = nil,
+		direction = "float",
 	})
 
 	vim.keymap.set("n", "<M-o>", "<Cmd>Lf<CR>")
