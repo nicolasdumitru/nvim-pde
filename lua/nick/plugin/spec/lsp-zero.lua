@@ -35,16 +35,12 @@ local function configuration()
 		end, { desc = "Rename a variable with the LSP (all LSP references)"}, opts)
 	end)
 
-	lsp.ensure_installed({
-		"clangd",
-		"rust_analyzer",
-		"lua_ls",
-		"bashls",
-		"pyright",
-		"svlangserver",
-	})
-
+	require("lspconfig").clangd.setup{}
+	require("lspconfig").rust_analyzer.setup{}
 	require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+	require("lspconfig").bashls.setup{}
+	require("lspconfig").pyright.setup{}
+	require("lspconfig").svls.setup{}
 
 	lsp.setup()
 
@@ -76,11 +72,6 @@ return {
 	dependencies = {
 		-- LSP Support
 		{ "neovim/nvim-lspconfig" }, -- Required
-		{                      -- Optional
-			"williamboman/mason.nvim",
-			build = pcall(vim.cmd.MasonUpdate)
-		},
-		{ "williamboman/mason-lspconfig.nvim" }, -- Optional
 		-- Autocompletion
 		{ "hrsh7th/nvim-cmp" },            -- Required
 		{ "hrsh7th/cmp-nvim-lsp" },        -- Required
