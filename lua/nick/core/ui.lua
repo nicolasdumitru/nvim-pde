@@ -12,7 +12,7 @@ vim.opt.cursorline = true
 vim.opt.cursorcolumn = false
 
 -- Signcolumn settings
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "auto:1-2"
 
 -- List mode (show invisible characters)
 vim.opt.list = true
