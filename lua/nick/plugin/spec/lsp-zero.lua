@@ -64,6 +64,8 @@ local function configuration()
 			["<S-Tab>"] = cmp_action.select_prev_or_fallback(),
 		},
 	})
+
+	vim.cmd.LspStart()
 end
 
 return {
