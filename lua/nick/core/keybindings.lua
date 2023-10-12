@@ -12,6 +12,14 @@ local function cdpwd(dir)
 	end
 end
 
+-- Open a terminal in the directory of the current file
+local function terminalhere()
+	return function()
+		vim.cmd.cd("%:p:h")
+		vim.cmd("!" .. TERM .. " & disown")
+		vim.cmd.mode()
+	end
+end
 -- `cd` to the directory of the currently edited file
 vim.keymap.set("n", "<leader>cd", cdpwd("%:p:h"))
 -- `cd` up a directory
@@ -24,7 +32,7 @@ vim.keymap.set("n", "<leader>cn", cdpwd(nvim_config_dir))
 vim.keymap.set("n", "<leader>co", cdpwd(code))
 
 -- Open an external terminal in the working directory of the currently edited file
-vim.keymap.set("n", "<leader>tt", function () vim.cmd.cd("%:p:h") vim.cmd("!" .. TERM .. " & disown") vim.cmd.mode() end)
+vim.keymap.set("n", "<leader>tt", terminalhere())
 
 -- System clipboard remaps
 -- Easily yank (copy) stuff into the system clipoboard
