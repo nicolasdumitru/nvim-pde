@@ -16,9 +16,6 @@ vim.keymap.set("n", "<leader>cn", ":cd ~/.config/nvim <CR> :pwd <CR>")
 -- Open an external terminal in the working directory of the currently edited file
 vim.keymap.set("n", "<leader>tt", ":cd %:p:h <CR> :!$TERM & disown <CR> :mode <CR>")
 
--- Show Netrw
-vim.keymap.set("n", "<leader>lf", vim.cmd.Ex)
-
 -- System clipboard remaps
 -- Easily yank (copy) stuff into the system clipoboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
