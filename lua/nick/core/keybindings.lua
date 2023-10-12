@@ -4,17 +4,27 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
--- Go to the directory of the currently edited file
-vim.keymap.set("n", "<leader>cd", ":cd %:p:h <CR> :pwd <CR>")
--- Go up a directory
-vim.keymap.set("n", "<leader>c.", ":cd .. <CR> :pwd <CR>")
--- Go to the ~/.config directory
-vim.keymap.set("n", "<leader>cf", ":cd ~/.config <CR> :pwd <CR>")
--- Go to the neovim configuration directory (~/.config/nvim)
-vim.keymap.set("n", "<leader>cn", ":cd ~/.config/nvim <CR> :pwd <CR>")
+-- Change directory to `dir` and print the current working directory
+local function cdpwd(dir)
+	return function()
+		vim.cmd.cd(dir)
+		vim.cmd.pwd()
+	end
+end
+
+-- `cd` to the directory of the currently edited file
+vim.keymap.set("n", "<leader>cd", cdpwd("%:p:h"))
+-- `cd` up a directory
+vim.keymap.set("n", "<leader>c.", cdpwd(".."))
+-- `cd` to $XDG_CONFIG_HOME
+vim.keymap.set("n", "<leader>cf", cdpwd(XDG_CONFIG_HOME))
+-- `cd` to the neovim configuration directory ($XDG_CONFIG_HOME/nvim)
+vim.keymap.set("n", "<leader>cn", cdpwd(nvim_config_dir))
+-- `cd` to the 'code' directory
+vim.keymap.set("n", "<leader>co", cdpwd(code))
 
 -- Open an external terminal in the working directory of the currently edited file
-vim.keymap.set("n", "<leader>tt", ":cd %:p:h <CR> :!$TERM & disown <CR> :mode <CR>")
+vim.keymap.set("n", "<leader>tt", function () vim.cmd.cd("%:p:h") vim.cmd("!" .. TERM .. " & disown") vim.cmd.mode() end)
 
 -- System clipboard remaps
 -- Easily yank (copy) stuff into the system clipoboard
