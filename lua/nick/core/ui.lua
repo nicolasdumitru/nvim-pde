@@ -22,3 +22,6 @@ vim.opt.hlsearch = true
 
 -- Conceal level (how concealed text is shown)
 vim.opt.conceallevel = 2
+
+-- Window title
+vim.opt.title = true
