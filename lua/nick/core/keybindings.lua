@@ -66,7 +66,7 @@ vim.keymap.set({ "n", "i", "t" }, "<A-K>", "<Cmd>wincmd K <CR>", { silent = true
 vim.keymap.set({ "n", "i" }, "<A-L>", "<Cmd>wincmd L <CR>", { silent = true })
 -- Resize splits quickly in normal mode
 vim.keymap.set({ "n", "i", "t" }, "<A-=>", "<Cmd>wincmd = <CR>", { silent = true })
-vim.keymap.set({ "n", "i", "t" }, "<A-+>", "<Cmd>wincmd | <CR>", { silent = true })
+vim.keymap.set({ "n", "i", "t" }, "<A-m>", "<Cmd>wincmd | <CR>", { silent = true })
 vim.keymap.set({ "n", "i", "t" }, "<A-Left>", "<Cmd>vertical resize -2 <CR>", { silent = true })
 vim.keymap.set({ "n", "i", "t" }, "<A-Down>", "<Cmd>resize -1 <CR>", { silent = true })
 vim.keymap.set({ "n", "i", "t" }, "<A-Up>", "<Cmd>resize +1 <CR>", { silent = true })
