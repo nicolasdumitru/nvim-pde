@@ -16,6 +16,7 @@ vim.opt.signcolumn = "yes:1"
 
 -- List mode (show invisible characters)
 vim.opt.list = true
+vim.opt.listchars = "tab:|  ,leadmultispace:|···,trail:·,nbsp:+"
 
 -- Highlight all search matches
 vim.opt.hlsearch = true
