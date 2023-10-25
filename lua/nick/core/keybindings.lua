@@ -4,35 +4,45 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
--- Change directory to `dir` and print the current working directory
-local function cdpwd(dir)
-	return function()
-		vim.cmd.cd(dir)
-		vim.cmd.pwd()
-	end
+-- the Current File's Directory
+local cfd = "%:p:h"
+
+-- `cd` to `dir` and print the current working directory
+local function cd_pwd(dir)
+	vim.cmd.lcd(dir)
+	vim.cmd.pwd()
 end
 
--- Open a terminal in the directory of the current file
-local function terminalhere()
-	return function()
-		vim.cmd.cd("%:p:h")
-		vim.cmd("!" .. TERM .. " & disown")
-		vim.cmd.mode()
-	end
+-- Open an external terminal in the directory of the currently edited file
+local function open_terminal_here()
+	vim.cmd.lcd(cfd)
+	vim.fn.system(TERM .. " & disown")
+	vim.cmd.mode()
 end
+
+-- `cd` to the root of the currently edited file's repository
+local function cd_repository_root()
+	vim.cmd.lcd(cfd)
+	cd_pwd(vim.fn.trim(vim.fn.system("git rev-parse --show-toplevel")))
+end
+
+-- `cd` to $HOME
+vim.keymap.set("n", "<leader>cd<Return>", function () cd_pwd(HOME) end)
 -- `cd` to the directory of the currently edited file
-vim.keymap.set("n", "<leader>cd", cdpwd("%:p:h"))
+vim.keymap.set("n", "<leader>cdf", function () cd_pwd(cfd) end)
 -- `cd` up a directory
-vim.keymap.set("n", "<leader>c.", cdpwd(".."))
+vim.keymap.set("n", "<leader>cd.", function () cd_pwd("..") end)
+-- `cd` to the root of the git repository of the currently edited file
+vim.keymap.set("n", "<leader>cdrr", function () cd_repository_root() end)
 -- `cd` to $XDG_CONFIG_HOME
-vim.keymap.set("n", "<leader>cf", cdpwd(XDG_CONFIG_HOME))
--- `cd` to the neovim configuration directory ($XDG_CONFIG_HOME/nvim)
-vim.keymap.set("n", "<leader>cn", cdpwd(nvim_config_dir))
+vim.keymap.set("n", "<leader>cdcf", function () cd_pwd(XDG_CONFIG_HOME) end)
+-- `cd` to the neovim configuration directory ($XDG_CONFIG_HOME/nvim end)
+vim.keymap.set("n", "<leader>cdnv", function () cd_pwd(nvim_config_dir) end)
 -- `cd` to the 'code' directory
-vim.keymap.set("n", "<leader>co", cdpwd(code))
+vim.keymap.set("n", "<leader>cdco", function () cd_pwd(code) end)
 
--- Open an external terminal in the working directory of the currently edited file
-vim.keymap.set("n", "<leader>tt", terminalhere())
+-- Open an external terminal in the directory of the currently edited file
+vim.keymap.set("n", "<leader>tt", function () open_terminal_here() end)
 
 -- System clipboard remaps
 -- Easily yank (copy) stuff into the system clipoboard
