@@ -11,8 +11,11 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = false
 
--- Signcolumn settings
+-- Signcolumn
 vim.opt.signcolumn = "yes:2"
+
+-- Cursor
+vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 
 -- List mode (show invisible characters)
 vim.opt.list = true
