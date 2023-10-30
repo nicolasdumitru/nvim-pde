@@ -1,12 +1,17 @@
+local sign_chars = {
+	solid = '▊',
+	double = '║',
+}
+
 local function configuration()
 	require('gitsigns').setup({
 		signs = {
-			add = { text = '│' },
-			change = { text = '│' },
+			add = { text = sign_chars.solid },
+			change = { text = sign_chars.solid },
 			delete = { text = '_' },
 			topdelete = { text = '‾' },
 			changedelete = { text = '~' },
-			untracked = { text = '┆' },
+			untracked = { text = sign_chars.double },
 		},
 		signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
 		numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
