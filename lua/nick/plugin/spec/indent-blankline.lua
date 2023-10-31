@@ -14,4 +14,6 @@ return
 	main = "ibl",
 	opts = {},
 	config = configuration,
+	lazy = true,
+	event = "VeryLazy",
 }
