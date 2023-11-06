@@ -32,15 +32,18 @@ local function configuration()
 		-- LSP variable renaming
 		vim.keymap.set("n", "<LocalLeader>%s", function()
 			vim.lsp.buf.rename()
-		end, { desc = "Rename a variable with the LSP (all LSP references)"}, opts)
+		end, { desc = "Rename a variable with the LSP (all LSP references)" }, opts)
 	end)
 
-	require("lspconfig").clangd.setup{}
-	require("lspconfig").rust_analyzer.setup{}
+	require("lspconfig").clangd.setup {}
+	require("lspconfig").rust_analyzer.setup {}
+	require('lspconfig')['hls'].setup {
+		filetypes = { 'haskell', 'lhaskell', 'cabal' },
+	}
 	require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
-	require("lspconfig").bashls.setup{}
-	require("lspconfig").pyright.setup{}
-	require("lspconfig").svls.setup{}
+	require("lspconfig").bashls.setup {}
+	require("lspconfig").pyright.setup {}
+	require("lspconfig").svls.setup {}
 
 	lsp.setup()
 
@@ -75,9 +78,9 @@ return {
 		-- LSP Support
 		{ "neovim/nvim-lspconfig" }, -- Required
 		-- Autocompletion
-		{ "hrsh7th/nvim-cmp" },            -- Required
-		{ "hrsh7th/cmp-nvim-lsp" },        -- Required
-		{ "L3MON4D3/LuaSnip" },            -- Required
+		{ "hrsh7th/nvim-cmp" }, -- Required
+		{ "hrsh7th/cmp-nvim-lsp" }, -- Required
+		{ "L3MON4D3/LuaSnip" }, -- Required
 	},
 	config = configuration,
 	name = "LSP Zero",
