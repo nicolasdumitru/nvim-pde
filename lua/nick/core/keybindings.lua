@@ -9,7 +9,7 @@ local cfd = "%:p:h"
 
 -- `cd` to `dir` and print the current working directory
 local function cd_pwd(dir)
-	vim.cmd.lcd(dir)
+	vim.cmd.cd(dir)
 	vim.cmd.pwd()
 end
 
