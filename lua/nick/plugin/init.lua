@@ -37,7 +37,6 @@ local options = {
 			disabled_plugins = {
 				"tohtml",
 				"gzip",
-				"netrwPlugin",
 				"matchit",
 				"tarPlugin",
 				"spellfile",
