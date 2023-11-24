@@ -44,6 +44,7 @@ local function configuration()
 	require("lspconfig").bashls.setup {}
 	require("lspconfig").pyright.setup {}
 	require("lspconfig").svls.setup {}
+	require("lspconfig").nixd.setup {}
 
 	lsp.setup()
 
