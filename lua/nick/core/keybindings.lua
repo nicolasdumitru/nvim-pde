@@ -15,49 +15,52 @@ end
 
 -- Open an external terminal in the directory of the currently edited file
 local function open_terminal_here()
-	vim.cmd.lcd(cfd)
+	vim.cmd.cd(cfd)
 	vim.fn.system(TERM .. " & disown")
 	vim.cmd.mode()
 end
 
 -- `cd` to the root of the currently edited file's repository
 local function cd_repository_root()
-	vim.cmd.lcd(cfd)
+	vim.cmd.cd(cfd)
 	cd_pwd(vim.fn.trim(vim.fn.system("git rev-parse --show-toplevel")))
 end
 
--- `cd` to $HOME
-vim.keymap.set("n", "<leader>cd<Return>", function () cd_pwd(HOME) end)
--- `cd` to the directory of the currently edited file
-vim.keymap.set("n", "<leader>cdf", function () cd_pwd(cfd) end)
--- `cd` up a directory
-vim.keymap.set("n", "<leader>cd.", function () cd_pwd("..") end)
--- `cd` to the root of the git repository of the currently edited file
-vim.keymap.set("n", "<leader>cdrr", function () cd_repository_root() end)
--- `cd` to $XDG_CONFIG_HOME
-vim.keymap.set("n", "<leader>cdcf", function () cd_pwd(XDG_CONFIG_HOME) end)
--- `cd` to the neovim configuration directory ($XDG_CONFIG_HOME/nvim end)
-vim.keymap.set("n", "<leader>cdnv", function () cd_pwd(nvim_config_dir) end)
--- `cd` to the 'code' directory
-vim.keymap.set("n", "<leader>cdco", function () cd_pwd(code) end)
+-- `cd keybindings`
+vim.keymap.set("n", "<leader>cd<Return>", function() cd_pwd(HOME) end,
+	{ desc = "`cd` to $HOME" })
+vim.keymap.set("n", "<leader>cdf", function() cd_pwd(cfd) end,
+	{ desc = "`cd` to the directory of the currently edited file" })
+vim.keymap.set("n", "<leader>cd.", function() cd_pwd("..") end,
+	{ desc = "`cd` up a directory" })
+vim.keymap.set("n", "<leader>cdrr", function() cd_repository_root() end,
+	{ desc = "`cd` to the root of the git repository of the currently edited file" })
+vim.keymap.set("n", "<leader>cdcf", function() cd_pwd(XDG_CONFIG_HOME) end,
+	{ desc = "`cd` to $XDG_CONFIG_HOME" })
+vim.keymap.set("n", "<leader>cdco", function() cd_pwd(code) end,
+	{ desc = "`cd` to the 'code' directory" })
 
 -- Open an external terminal in the directory of the currently edited file
-vim.keymap.set("n", "<leader>tt", function () open_terminal_here() end)
+vim.keymap.set("n", "<leader>tt", function() open_terminal_here() end,
+	{ desc = "" })
 
 -- System clipboard remaps
--- Easily yank (copy) stuff into the system clipoboard
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+y$]])
--- Easily delete (cut) stuff into the system clipoboard
-vim.keymap.set({ "n", "v" }, "<leader>d", [["+d]])
-vim.keymap.set("n", "<leader>D", [["+D]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]],
+	{ desc = "Yank (copy) text into the system clipboard" })
+vim.keymap.set("n", "<leader>Y", [["+y$]],
+	{ desc = "Yank (copy) text into the system clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>d", [["+d]],
+	{ desc = "Delete (cut) text into the system clipboard" })
+vim.keymap.set("n", "<leader>D", [["+D]],
+	{ desc = "Delete (cut) text into the system clipboard" })
 
 -- Black hole register remaps
--- Easily delete stuff without copying it
-vim.keymap.set({ "n", "v" }, "<leader>c", [["_c]])
-vim.keymap.set("n", "<leader>C", [["_C]])
--- Keep the copied string in register when pasting over a highlight
-vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set({ "n", "v" }, "<leader>c", [["_d]],
+	{ desc = "Delete text without copying it" })
+vim.keymap.set("n", "<leader>C", [["_D]],
+	{ desc = "Delete text without copying it" })
+vim.keymap.set("x", "<leader>p", [["_dP]],
+	{ desc = "Keep the copied text in register when pasting over a highlight" })
 
 -- Move lines in visual mode
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
@@ -77,28 +80,24 @@ vim.keymap.set({ "n", "i" }, "<A-L>", "<Cmd>wincmd L <CR>", { silent = true })
 -- Resize splits quickly in normal mode
 vim.keymap.set({ "n", "i", "t" }, "<A-=>", "<Cmd>wincmd = <CR>", { silent = true })
 vim.keymap.set({ "n", "i", "t" }, "<A-m>", "<Cmd>wincmd | <CR>", { silent = true })
-vim.keymap.set({ "n", "i", "t" }, "<A-Left>", "<Cmd>vertical resize -2 <CR>", { silent = true })
+vim.keymap.set({ "n", "i", "t" }, "<A-Left>", "<Cmd>vertical resize -2 <CR>",
+	{ silent = true })
 vim.keymap.set({ "n", "i", "t" }, "<A-Down>", "<Cmd>resize -1 <CR>", { silent = true })
 vim.keymap.set({ "n", "i", "t" }, "<A-Up>", "<Cmd>resize +1 <CR>", { silent = true })
-vim.keymap.set({ "n", "i", "t" }, "<A-Right>", "<Cmd>vertical resize +2 <CR>", { silent = true })
+vim.keymap.set({ "n", "i", "t" }, "<A-Right>", "<Cmd>vertical resize +2 <CR>",
+	{ silent = true })
 
--- Replace a word in the whole file
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+-- This is for terminals that pass ctrl-backspace as <C-BS> instead of <C-w> to Neovim
+vim.keymap.set("i", "<C-BS>", "<C-G>u<C-W>",
+	{ desc = "Set a new undo point and delete a word with ctrl-backspace in insert mode" })
 
--- Set a new undo point and delete a word with ctrl-backspace in insert mode
--- (this is for terminals that pass ctrl-backspace as <C-BS> instead of <C-w> to neovim)
-vim.keymap.set("i", "<C-BS>", "<C-G>u<C-W>")
-
---The remaps below don't really add new functionality to Neovim, they just improve the behavior of already existent mappings. They could almost be regarded as settings.
+-- The remaps below improve the behavior of already existent mappings.
 
 -- Keep the cursor in the middle of the screen
--- when scrolling half a page
 vim.keymap.set("n", "<C-d>", "M<C-d>zz")
 vim.keymap.set("n", "<C-u>", "M<C-u>zz")
--- when scrolling a full page
 vim.keymap.set("n", "<C-f>", "<C-f>zz")
 vim.keymap.set("n", "<C-b>", "<C-b>zz")
--- when viewing search results
 vim.keymap.set("n", "n", "nzz") -- or "nzzzv"
 vim.keymap.set("n", "N", "Nzz") -- or "Nzzzv"
 
@@ -107,7 +106,7 @@ vim.keymap.set("n", "J", "mzJ`z")
 
 -- Default bindings that I'd like to make sure I keep regardless of potential future updates
 vim.keymap.set("n", "Y", "y$")
--- Set a new undo point and delete a line with ctrl-u in insert mode
-vim.keymap.set("i", "<C-U>", "<C-G>u<C-U>")
--- Set a new undo point and delete a word with ctrl-w in insert mode
-vim.keymap.set("i", "<C-W>", "<C-G>u<C-W>")
+vim.keymap.set("i", "<C-U>", "<C-G>u<C-U>",
+	{ desc = "Set a new undo point and delete a line with ctrl-u in insert mode" })
+vim.keymap.set("i", "<C-W>", "<C-G>u<C-W>",
+	{ desc = "Set a new undo point and delete a word with ctrl-w in insert mode" })
