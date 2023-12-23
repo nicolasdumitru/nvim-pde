@@ -68,10 +68,11 @@ vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 
 -- Splits remaps
 -- Navigate splits quickly in normal and insert mode
-vim.keymap.set({ "n", "i", "t" }, "<A-h>", "<Cmd>wincmd h <CR>", { silent = true })
-vim.keymap.set({ "n", "i", "t" }, "<A-j>", "<Cmd>wincmd j <CR>", { silent = true })
-vim.keymap.set({ "n", "i", "t" }, "<A-k>", "<Cmd>wincmd k <CR>", { silent = true })
-vim.keymap.set({ "n", "i", "t" }, "<A-l>", "<Cmd>wincmd l <CR>", { silent = true })
+--vim.keymap.del("n", "n")
+--vim.keymap.set({ "n", "o", "t" }, "h", "h", { silent = true })
+vim.keymap.set({ "n", "o", "t" }, "n", "j", { silent = true })
+vim.keymap.set({ "n", "o", "t" }, "e", "k", { silent = true })
+vim.keymap.set({ "n", "o", "t" }, "i", "l", { silent = true })
 -- Move splits quickly in normal mode
 vim.keymap.set({ "n", "i" }, "<A-H>", "<Cmd>wincmd H <CR>", { silent = true })
 vim.keymap.set({ "n", "i", "t" }, "<A-J>", "<Cmd>wincmd J <CR>", { silent = true })
@@ -98,8 +99,8 @@ vim.keymap.set("n", "<C-d>", "M<C-d>zz")
 vim.keymap.set("n", "<C-u>", "M<C-u>zz")
 vim.keymap.set("n", "<C-f>", "<C-f>zz")
 vim.keymap.set("n", "<C-b>", "<C-b>zz")
-vim.keymap.set("n", "n", "nzz") -- or "nzzzv"
-vim.keymap.set("n", "N", "Nzz") -- or "Nzzzv"
+--vim.keymap.set("n", "n", "nzz") -- or "nzzzv"
+--vim.keymap.set("n", "N", "Nzz") -- or "Nzzzv"
 
 -- Keep the cursor in the same place when appending lines
 vim.keymap.set("n", "J", "mzJ`z")
