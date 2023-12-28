@@ -1,12 +1,39 @@
 local function configuration()
 	require("telescope").setup({
+		defaults = {
+			sorting_strategy = "ascending",
+			layout_strategy = "horizontal",
+			layout_config = { prompt_position = "top" },
+			border = true,
+		},
 		pickers = {
 			commands = {
 				theme = "ivy",
-			}
-		}
+			},
+		},
 	})
+
+	local palette = require("nick.core.highlights.gruvbox")
+
+	local highlight_groups = {
+		{ "TelescopeMatching",      { fg = palette.bright_orange, underline = true } },
+		{ "TelescopeSelection",     { bg = palette.dark1 } }, -- gitsigns
+		{ "TelescopeNormal",        { fg = palette.light1, bg = palette.dark0_hard } },
+		{ "TelescopePromptNormal",  { bg = palette.dark1 } }, -- gitsigns
+		{ "TelescopeResultsBorder", { fg = palette.dark0_hard, bg = palette.dark0_hard } },
+		{ "TelescopePreviewBorder", { fg = palette.dark0_hard, bg = palette.dark0_hard } },
+		{ "TelescopePromptBorder",  { fg = palette.dark1, bg = palette.dark1 } },
+		{ "TelescopePromptTitle",   { fg = palette.dark1, bg = palette.bright_blue } },
+		{ "TelescopeResultsTitle",  { fg = palette.dark1, bg = palette.bright_aqua } },
+		{ "TelescopePreviewTitle",  { fg = palette.dark1, bg = palette.bright_aqua } },
+	}
+
+	for _, hl in pairs(highlight_groups) do
+		vim.api.nvim_set_hl(0, hl[1], hl[2])
+	end
+
 	local builtin = require("telescope.builtin")
+
 	vim.keymap.set("n", "<Leader>st", builtin.builtin,
 		{ desc = "Telescope builtin" })
 	vim.keymap.set("n", "<Leader>sf", builtin.find_files,
