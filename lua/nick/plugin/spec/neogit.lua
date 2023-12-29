@@ -1,3 +1,8 @@
+local function configuration()
+	require("neogit").setup()
+	vim.keymap.set("n", "<leader>gd", function() vim.cmd.Neogit("diff") end)
+end
+
 return {
 	"NeogitOrg/neogit",
 	name = "Neogit",
@@ -5,6 +10,6 @@ return {
 		"nvim-lua/plenary.nvim", -- required
 		"sindrets/diffview.nvim", -- optional - Diff integration
 	},
-	config = true,
+	config = configuration,
 	event = "VeryLazy",
 }
