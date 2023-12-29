@@ -1,5 +1,8 @@
 local function configuration()
-	require("telescope").load_extension("file_browser")
+	local fb = require("telescope").load_extension("file_browser")
+	vim.keymap.set("n", "<Leader>fm", fb.file_browser,
+		{ desc = "telescope-file-browser" })
+
 end
 
 return {
