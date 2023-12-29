@@ -1,27 +1,8 @@
 local function configuration()
-	local lsp = require("lsp-zero").preset({
-		{
-			float_border = "rounded",
-			call_servers = "local",
-			configure_diagnostics = true,
-			setup_servers_on_start = true,
-			set_lsp_keymaps = {
-				preserve_mappings = false,
-				omit = {},
-			},
-			manage_nvim_cmp = {
-				set_sources = "recommended",
-				set_basic_mappings = true,
-				set_extra_mappings = false,
-				use_luasnip = true,
-				set_format = true,
-				documentation_window = true,
-			},
-		}
-	})
+	local lsp_zero = require("lsp-zero")
 
-	lsp.on_attach(function(client, bufnr)
-		lsp.default_keymaps({ buffer = bufnr })
+	lsp_zero.on_attach(function(client, bufnr)
+		lsp_zero.default_keymaps({ buffer = bufnr })
 		local opts = { buffer = bufnr }
 
 		-- LSP formatting
@@ -35,23 +16,27 @@ local function configuration()
 		end, { desc = "Rename a variable with the LSP (all LSP references)" }, opts)
 	end)
 
+	lsp_zero.set_sign_icons({
+		error = '', --  
+		warn = '󰀦', -- 󰀦 󰀪
+		hint = '󰌵', -- 󰌵 󰌶 
+		info = '󰋼' -- 󰋼 
+	})
+
 	require("lspconfig").clangd.setup {}
 	require("lspconfig").rust_analyzer.setup {}
 	require('lspconfig')['hls'].setup {
 		filetypes = { 'haskell', 'lhaskell', 'cabal' },
 	}
-	require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+	require("lspconfig").lua_ls.setup(lsp_zero.nvim_lua_ls())
 	require("lspconfig").bashls.setup {}
 	require("lspconfig").pyright.setup {}
 	require("lspconfig").svls.setup {}
 	require("lspconfig").nixd.setup {}
 
-	lsp.setup()
-
 	-- nvim-cmp configuration
-	-- Make sure you setup `cmp` after lsp-zero
 	local cmp = require("cmp")
-	local cmp_action = require("lsp-zero").cmp_action()
+	local cmp_format = lsp_zero.cmp_format()
 
 	cmp.setup({
 		preselect = "item",
@@ -62,11 +47,16 @@ local function configuration()
 			{ name = "nvim_lsp" },
 			{ name = "luasnip" },
 		},
-		mapping = {
+		mapping = cmp.mapping.preset.insert({
+			-- scroll up and down the documentation window
+			['<C-u>'] = cmp.mapping.scroll_docs(-4),
+			['<C-d>'] = cmp.mapping.scroll_docs(4),
+
+			-- confirm completion
 			["<CR>"] = cmp.mapping.confirm({ select = true }),
-			["<Tab>"] = cmp_action.tab_complete(),
-			["<S-Tab>"] = cmp_action.select_prev_or_fallback(),
-		},
+			["<Tab>"] = cmp.mapping.confirm({ select = true }),
+		}),
+		formatting = cmp_format,
 	})
 
 	vim.cmd.LspStart()
@@ -74,14 +64,14 @@ end
 
 return {
 	"VonHeikemen/lsp-zero.nvim",
-	branch = "v2.x",
+	branch = "v3.x",
 	dependencies = {
 		-- LSP Support
-		{ "neovim/nvim-lspconfig" }, -- Required
+		{ "neovim/nvim-lspconfig" },
 		-- Autocompletion
-		{ "hrsh7th/nvim-cmp" }, -- Required
-		{ "hrsh7th/cmp-nvim-lsp" }, -- Required
-		{ "L3MON4D3/LuaSnip" }, -- Required
+		{ "hrsh7th/nvim-cmp" },
+		{ "hrsh7th/cmp-nvim-lsp" },
+		{ "L3MON4D3/LuaSnip" },
 	},
 	config = configuration,
 	name = "LSP Zero",
