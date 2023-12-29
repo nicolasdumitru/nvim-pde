@@ -1,4 +1,8 @@
 local function configuration()
+	local function neovim_logo()
+		return ""
+	end
+
 	require('lualine').setup {
 		options = {
 			icons_enabled = true,
@@ -19,19 +23,19 @@ local function configuration()
 			}
 		},
 		sections = {
-			lualine_a = { 'mode' },
+			lualine_a = { neovim_logo, 'mode' },
 			lualine_b = { 'branch', 'diff', 'diagnostics' },
 			lualine_c = { 'filename' },
 			lualine_x = { 'encoding', 'filetype' },
 			lualine_y = { 'progress' },
-			lualine_z = { 'location' }
+			lualine_z = { 'location', 'selectioncount' }
 		},
 		inactive_sections = {
-			lualine_a = {},
-			lualine_b = {},
+			lualine_a = {neovim_logo},
+			lualine_b = { 'branch', 'diff', 'diagnostics' },
 			lualine_c = { 'filename' },
-			lualine_x = { 'location' },
-			lualine_y = {},
+			lualine_x = { 'encoding', 'filetype' },
+			lualine_y = {'progress', 'location' },
 			lualine_z = {}
 		},
 		tabline = {},
