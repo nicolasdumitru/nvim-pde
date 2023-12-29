@@ -38,6 +38,8 @@ local function configuration()
 	local cmp = require("cmp")
 	local cmp_format = lsp_zero.cmp_format()
 
+	local lspkind = require("lspkind")
+
 	cmp.setup({
 		preselect = "item",
 		completion = {
@@ -56,7 +58,14 @@ local function configuration()
 			["<CR>"] = cmp.mapping.confirm({ select = true }),
 			["<Tab>"] = cmp.mapping.confirm({ select = true }),
 		}),
-		formatting = cmp_format,
+		formatting = {
+			format = lspkind.cmp_format({
+				mode = "symbol_text",
+				maxwidth = function() return math.min(math.floor(0.45 * vim.o.columns), 45) end,
+				preset = 'codicons',
+				ellipsis_char = '...', -- must define maxwidth first
+			})
+		}
 	})
 
 	vim.cmd.LspStart()
@@ -72,6 +81,7 @@ return {
 		{ "hrsh7th/nvim-cmp" },
 		{ "hrsh7th/cmp-nvim-lsp" },
 		{ "L3MON4D3/LuaSnip" },
+		{ "onsails/lspkind.nvim" },
 	},
 	config = configuration,
 	name = "LSP Zero",
