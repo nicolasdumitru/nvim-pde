@@ -1,5 +1,7 @@
 local function configuration()
-	require("telescope").setup({
+	local telescope = require("telescope")
+
+	telescope.setup({
 		defaults = {
 			sorting_strategy = "ascending",
 			layout_strategy = "horizontal",
@@ -11,7 +13,14 @@ local function configuration()
 				theme = "ivy",
 			},
 		},
+		extensions = {
+			file_browser = {
+				hijack_netrw = true,
+			},
+		},
 	})
+
+	local fb = telescope.load_extension("file_browser")
 
 	local palette = require("nick.core.highlights.gruvbox")
 
@@ -60,12 +69,18 @@ local function configuration()
 		{ desc = "List normal mode keymaps" })
 	vim.keymap.set("n", "<Leader>slr", builtin.lsp_references,
 		{ desc = "List LSP references" })
+	vim.keymap.set("n", "<Leader>fm", fb.file_browser,
+		{ desc = "telescope-file-browser" })
 end
 
 return {
 	"nvim-telescope/telescope.nvim",
 	branch = "0.1.x",
-	dependencies = { "nvim-lua/plenary.nvim" },
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"nvim-telescope/telescope-file-browser.nvim",
+		"nvim-tree/nvim-web-devicons",
+	},
 	name = "Telescope",
 	event = "VeryLazy",
 	config = configuration,
