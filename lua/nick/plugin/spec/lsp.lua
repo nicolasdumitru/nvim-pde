@@ -17,10 +17,10 @@ local function configuration()
 	end)
 
 	lsp_zero.set_sign_icons({
-		error = '', --  
-		warn = '󰀦', -- 󰀦 󰀪
-		hint = '󰌵', -- 󰌵 󰌶 
-		info = '󰋼' -- 󰋼 
+		error = '', --  
+		warn = '󰀪', -- 󰀦 󰀪
+		hint = '󰌶', -- 󰌵 󰌶 
+		info = '' -- 󰋼 
 	})
 
 	require("lspconfig").clangd.setup {}
