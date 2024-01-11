@@ -31,11 +31,11 @@ local function configuration()
 			lualine_z = { 'location', 'selectioncount' }
 		},
 		inactive_sections = {
-			lualine_a = {neovim_logo},
+			lualine_a = { neovim_logo },
 			lualine_b = { 'branch', 'diff', 'diagnostics' },
 			lualine_c = { 'filename' },
 			lualine_x = { 'encoding', 'filetype' },
-			lualine_y = {'progress', 'location' },
+			lualine_y = { 'progress', 'location' },
 			lualine_z = {}
 		},
 		tabline = {},
