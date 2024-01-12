@@ -1,9 +1,10 @@
 local function configuration()
 	require("ibl").setup({
 		indent = {
-			-- these are slightly different
-			char = '┃', -- center aligned
-			tab_char = '▎', -- left aligned
+			-- center aligned '┃'
+			-- left aligned   '▎'
+			char = '▎',
+			tab_char = '▎',
 		}
 	})
 end
