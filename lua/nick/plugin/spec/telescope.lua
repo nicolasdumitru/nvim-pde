@@ -27,10 +27,10 @@ local function configuration()
 	local highlight_groups = {
 		{ "TelescopeMatching",      { fg = palette.bright_orange, underline = true } },
 		{ "TelescopeSelection",     { bg = palette.dark1 } }, -- gitsigns
-		{ "TelescopeNormal",        { fg = palette.light1, bg = palette.dark0_hard } },
+		{ "TelescopeNormal",        { fg = palette.light1, bg = palette.dark0 } },
 		{ "TelescopePromptNormal",  { bg = palette.dark1 } }, -- gitsigns
-		{ "TelescopeResultsBorder", { fg = palette.dark0_hard, bg = palette.dark0_hard } },
-		{ "TelescopePreviewBorder", { fg = palette.dark0_hard, bg = palette.dark0_hard } },
+		{ "TelescopeResultsBorder", { fg = palette.dark0, bg = palette.dark0 } },
+		{ "TelescopePreviewBorder", { fg = palette.dark0, bg = palette.dark0 } },
 		{ "TelescopePromptBorder",  { fg = palette.dark1, bg = palette.dark1 } },
 		{ "TelescopePromptTitle",   { fg = palette.dark1, bg = palette.bright_blue } },
 		{ "TelescopeResultsTitle",  { fg = palette.dark1, bg = palette.bright_aqua } },
