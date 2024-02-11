@@ -31,8 +31,8 @@ local function configuration()
 	require("lspconfig").lua_ls.setup(lsp_zero.nvim_lua_ls())
 	require("lspconfig").bashls.setup {}
 	require("lspconfig").pyright.setup {}
-	require("lspconfig").svls.setup {}
 	require("lspconfig").nixd.setup {}
+	require('lspconfig').nil_ls.setup{}
 
 	-- nvim-cmp configuration
 	local cmp = require("cmp")
