@@ -3,9 +3,9 @@ local function configuration()
 
 	telescope.setup({
 		defaults = {
-			sorting_strategy = "ascending",
+			sorting_strategy = "descending",
 			layout_strategy = "horizontal",
-			layout_config = { prompt_position = "top" },
+			layout_config = { prompt_position = "bottom" },
 			border = true,
 		},
 		pickers = {
@@ -16,6 +16,8 @@ local function configuration()
 		extensions = {
 			file_browser = {
 				hijack_netrw = true,
+				sorting_strategy = "ascending",
+				layout_config = { prompt_position = "top" },
 			},
 		},
 	})
