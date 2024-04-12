@@ -62,7 +62,7 @@ local function configuration()
 			format = lspkind.cmp_format({
 				mode = "symbol_text",
 				maxwidth = function() return math.min(math.floor(0.45 * vim.o.columns), 45) end,
-				preset = 'codicons',
+				preset = 'default',
 				ellipsis_char = '...', -- must define maxwidth first
 			})
 		}
