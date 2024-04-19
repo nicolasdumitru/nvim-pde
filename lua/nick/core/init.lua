@@ -6,7 +6,7 @@ vim.opt.tabstop = tab_width
 vim.opt.varsofttabstop = nil
 vim.opt.vartabstop = nil
 vim.opt.smartindent = true
-vim.opt.expandtab = false
+vim.opt.expandtab = true
 
 -- Search
 vim.opt.ignorecase = true
