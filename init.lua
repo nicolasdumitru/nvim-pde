@@ -7,5 +7,8 @@ require("nick.core.ui")
 -- Keybindings
 require("nick.core.keybindings")
 
---Plugins
+-- Plugins
 require("nick.plugin")
+
+-- Colorscheme
+require("nick.core.colorscheme")
