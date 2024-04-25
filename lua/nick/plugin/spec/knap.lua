@@ -21,6 +21,6 @@ end
 
 return {
     "frabjous/knap",
-    event = "VeryLazy",
+    ft = {"tex", "texmf", "texinfo", "initex", "plaintex", "bib", "bst"},
     config = configuration()
 }
