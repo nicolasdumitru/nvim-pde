@@ -32,6 +32,7 @@ local function configuration()
     require("lspconfig").bashls.setup {}
     require("lspconfig").pyright.setup {}
     require('lspconfig').nil_ls.setup{}
+    require("lspconfig").texlab.setup{}
 
     -- nvim-cmp configuration
     local cmp = require("cmp")
