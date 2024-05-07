@@ -35,5 +35,6 @@ return {
     build = build,
     config = configuration,
     name = "Treesitter",
-    event = "VeryLazy"
+    event = "VeryLazy",
+    cmd = "TSUpdate"
 }
