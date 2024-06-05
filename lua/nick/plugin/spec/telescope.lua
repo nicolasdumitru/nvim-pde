@@ -3,14 +3,17 @@ local function configuration()
 
     telescope.setup({
         defaults = {
-            sorting_strategy = "descending",
+            sorting_strategy = "ascending",
             layout_strategy = "horizontal",
-            layout_config = { prompt_position = "bottom" },
+            layout_config = { prompt_position = "top" },
             border = true,
         },
         pickers = {
             commands = {
                 theme = "ivy",
+            },
+            current_buffer_fuzzy_find = {
+                theme = "dropdown",
             },
         },
         extensions = {
@@ -46,33 +49,31 @@ local function configuration()
     local builtin = require("telescope.builtin")
 
     vim.keymap.set("n", "<Leader>st", builtin.builtin,
-        { desc = "Telescope builtin" })
+        { desc = "Telescope: Search builtins" })
     vim.keymap.set("n", "<Leader>sf", builtin.find_files,
-        { desc = "Search files" })
+        { desc = "Telescope: Search files" })
     vim.keymap.set("n", "<Leader>sr", builtin.git_files,
-        { desc = "Search files in git repo" })
-    vim.keymap.set("n", "<Leader>sg", builtin.live_grep, { desc = "Live grep" })
-    vim.keymap.set("n", "<Leader>/",
-        function()
-            builtin.current_buffer_fuzzy_find(
-                require('telescope.themes').get_dropdown())
-        end,
-        { desc = "Current buffer fuzzy find" })
+        { desc = "Telescope: Search files in git repo" })
+    vim.keymap.set("n", "<Leader>sg", builtin.live_grep,
+        { desc = "Telescope: Live grep" })
+    vim.keymap.set("n", "<Leader>/", builtin.current_buffer_fuzzy_find,
+        { desc = "Telescope: Current buffer fuzzy find" })
     vim.keymap.set("n", "<Leader>sb", builtin.buffers,
-        { desc = "List open buffers" })
+        { desc = "Telescope: List open buffers" })
     vim.keymap.set("n", "<Leader>so", builtin.oldfiles,
-        { desc = "Search previously open files" })
-    vim.keymap.set("n", "<Leader>sh", builtin.help_tags, { desc = "List help" })
+        { desc = "Telescope: Search previously open files" })
+    vim.keymap.set("n", "<Leader>sh", builtin.help_tags,
+        { desc = "Telescope: List help" })
     vim.keymap.set("n", "<Leader>:", builtin.commands,
-        { desc = "List plugin/user commands" })
+        { desc = "Telescope: List plugin/user commands" })
     vim.keymap.set({ "n", "i" }, "<M-x>", builtin.commands,
-        { desc = "List plugin/user commands" })
+        { desc = "Telescope: List plugin/user commands" })
     vim.keymap.set("n", "<Leader>sk", builtin.keymaps,
-        { desc = "List normal mode keymaps" })
+        { desc = "Telescope: List custom keybindings" })
     vim.keymap.set("n", "<Leader>slr", builtin.lsp_references,
-        { desc = "List LSP references" })
+        { desc = "Telescope: List LSP references" })
     vim.keymap.set("n", "<Leader>fm", fb.file_browser,
-        { desc = "telescope-file-browser" })
+        { desc = "Telescope: telescope-file-browser" })
 end
 
 return {
