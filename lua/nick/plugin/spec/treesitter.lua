@@ -28,6 +28,7 @@ local function configuration()
             additional_vim_regex_highlighting = false,
         },
     }
+    vim.cmd.TSUpdate()
 end
 
 return {
