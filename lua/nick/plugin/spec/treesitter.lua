@@ -8,7 +8,7 @@ local function configuration()
         ensure_installed = {
             "c", "lua", "vim", "vimdoc", "query", -- these should always be installed
             "cpp", "rust", "haskell", "python", "bash",
-            "nix", "make",
+            "nix", "make", "just",
             "latex", "bibtex", "markdown", "markdown_inline"
         },
         -- Install parsers synchronously (only applied to `ensure_installed`)
