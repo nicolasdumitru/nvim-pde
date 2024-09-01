@@ -12,12 +12,12 @@ install:
     rsync {{rsync_opts}} {{source}}/ {{target}}/
 
 # Update plugins
-update:
+_update:
     nvim --headless "+Lazy! sync" +qa
     rsync {{rsync_opts}} {{target}}/{{lockfile}} {{source}}/{{lockfile}}
 
 # Update plugins and commit lockfile
-update-commit: update
+update: _update
     -git -C {{source}} commit -m "{{lockfile}}: Update" -o {{lockfile}}
 
 # Show differences between source and destination
