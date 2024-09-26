@@ -11,13 +11,15 @@ rsync_opts := "-Prlucv --delete-delay"
 install:
     rsync {{rsync_opts}} {{source}}/ {{target}}/
 
+alias update := update-commit
+
 # Update plugins
-_update:
+update-no-commit:
     nvim --headless "+Lazy! sync" +qa
     rsync {{rsync_opts}} {{target}}/{{lockfile}} {{source}}/{{lockfile}}
 
 # Update plugins and commit lockfile
-update: _update
+update-commit: update-no-commit
     -git -C {{source}} commit -m "{{lockfile}}: Update" -o {{lockfile}}
 
 # Show differences between source and destination
