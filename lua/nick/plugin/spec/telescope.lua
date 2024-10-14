@@ -62,6 +62,8 @@ local function configuration()
         { desc = "Telescope: List open buffers" })
     vim.keymap.set("n", "<Leader>so", builtin.oldfiles,
         { desc = "Telescope: Search previously open files" })
+    vim.keymap.set("n", "<Leader>sj", builtin.jumplist,
+        { desc = "Telescope: Search jumplist" })
     vim.keymap.set("n", "<Leader>sh", builtin.help_tags,
         { desc = "Telescope: List help" })
     vim.keymap.set("n", "<Leader>:", builtin.commands,
