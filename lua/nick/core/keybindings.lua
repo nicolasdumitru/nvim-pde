@@ -14,10 +14,10 @@ local function cd_pwd(dir)
 end
 
 -- Open an external terminal in the directory of the currently edited file
-local function open_terminal_here()
+local function term_here()
     vim.cmd.cd(cfd)
-    vim.fn.system(TERM .. " & disown")
-    vim.cmd.mode()
+    vim.system({TERM}, { text = true, detach = true }, nil)
+    -- vim.cmd.mode()
 end
 
 -- `cd` to the root of the currently edited file's repository
@@ -41,7 +41,7 @@ vim.keymap.set("n", "<leader>cdco", function() cd_pwd(code) end,
     { desc = "`cd` to the 'code' directory" })
 
 -- Open an external terminal in the directory of the currently edited file
-vim.keymap.set("n", "<leader>tt", function() open_terminal_here() end,
+vim.keymap.set("n", "<leader>tt", function() term_here() end,
     { desc = "" })
 
 -- System clipboard remaps
