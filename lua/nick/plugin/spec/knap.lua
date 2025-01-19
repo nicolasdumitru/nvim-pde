@@ -1,10 +1,12 @@
 local function configuration()
     vim.g.knap_settings = {
+        -- Using buffer as stdin rather than saving
         textopdf = "pdflatex -jobname \"$(basename -s .pdf %outputfile%)\" -halt-on-error",
         textopdfbufferasstdin = true,
-        textopdfviewerlaunch = "zathura --synctex-editor-command 'nvim --headless -es --cmd \"lua require('\"'\"'knaphelper'\"'\"').relayjump('\"'\"'%servername%'\"'\"','\"'\"'%{input}'\"'\"',%{line},0)\"' %outputfile%",
+        -- Viewer configuration (Okular)
+        textopdfviewerlaunch = "okular --unique %outputfile%",
         textopdfviewerrefresh = "none",
-        textopdfforwardjump = "zathura --synctex-forward=%line%:%column%:%srcfile% %outputfile%"
+        textopdfforwardjump = "okular --unique %outputfile%'#src:%line% '%srcfile%"
     }
 
     -- set shorter name for keymap function
