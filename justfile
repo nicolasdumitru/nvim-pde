@@ -1,5 +1,10 @@
-# List recipes
-default:
+# The default recipe is always the first recipe in the justfile
+
+# The recipe to run when just is invoked without a recipe
+default: list
+
+# List available recipes
+list:
     @just --list
 
 source := justfile_directory()
@@ -11,15 +16,10 @@ rsync_opts := "-Prlucv --delete-delay"
 install:
     rsync {{rsync_opts}} {{source}}/ {{target}}/
 
-alias update := update-commit
-
 # Update plugins
-update-no-commit:
+update:
     nvim --headless "+Lazy! sync" +qa
     rsync {{rsync_opts}} {{target}}/{{lockfile}} {{source}}/{{lockfile}}
-
-# Update plugins and commit lockfile
-update-commit: update-no-commit
     -git -C {{source}} commit -m "{{lockfile}}: Update" -o {{lockfile}}
 
 # Show differences between source and destination
