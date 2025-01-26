@@ -12,8 +12,8 @@ target := env_var_or_default('XDG_CONFIG_HOME', env_var('HOME') + '/.config') + 
 lockfile := "lazy-lock.json"
 rsync_opts := "-Prlucv --delete-delay"
 
-# Install Neovim configuration files
-install:
+# Deploy Neovim configuration files
+deploy:
     rsync {{rsync_opts}} {{source}}/ {{target}}/
 
 # Update plugins
@@ -26,6 +26,6 @@ update:
 diff:
     -diff -rq --exclude='.git' {{source}} {{target}}
 
-# Uninstall Neovim configuration
-uninstall:
+# Undeploy Neovim configuration
+undeploy:
     rm -rf {{target}}
